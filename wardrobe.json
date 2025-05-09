@@ -1,0 +1,736 @@
+{
+    "riba@gmail.com": [
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 12900.0,
+            "quantity": 1
+        },
+        {
+            "category": "Heels",
+            "color": "Black",
+            "image_url": "/static/images/heels1.jpg",
+            "name": "High Heels",
+            "price": 5199.0,
+            "quantity": 2
+        },
+        {
+            "category": "Sweater",
+            "color": "Grey",
+            "image_url": "/static/images/grey.jpg",
+            "name": "Grey Sweater",
+            "price": 3000.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "sad"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "Grey",
+            "image_url": "/static/images/grey.jpg",
+            "name": "Grey Sweater",
+            "price": 3000.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "sad"
+            ]
+        }
+    ],
+    "rashford@gmail.com": [
+        {
+            "category": "Blouse",
+            "color": "Black",
+            "image_url": "/static/images/blouse2.webp",
+            "name": "Women Ready Black Blouse",
+            "price": 1799.0,
+            "quantity": 1
+        },
+        {
+            "category": "Tops",
+            "color": "Black",
+            "image_url": "/static/images/tops5.avif",
+            "name": "Black Tops",
+            "price": 1240.0,
+            "quantity": 1
+        },
+        {
+            "category": "Pant",
+            "color": "Black",
+            "image_url": "/static/images/pant5.jpeg",
+            "name": "Fit Chino Formal Pant",
+            "price": 1699.0,
+            "quantity": 1
+        },
+        {
+            "category": "Saree",
+            "color": "Blue",
+            "image_url": "/static/images/blue saree.png",
+            "name": "Royal Blue Saree",
+            "price": 18000.0,
+            "quantity": 1
+        },
+        {
+            "category": "Shirt",
+            "color": "Blue",
+            "image_url": "/static/images/shirt.jpg",
+            "name": "Blue Formal Shirt",
+            "price": 3299.0,
+            "quantity": 1
+        },
+        {
+            "category": "Ethnic",
+            "color": "green",
+            "image_url": "/static/images/kamiz4.webp",
+            "name": "Salowar white green Kamiz",
+            "price": 5299.0,
+            "quantity": 1
+        },
+        {
+            "category": "Heels",
+            "color": "Black",
+            "image_url": "/static/images/heels1.jpg",
+            "name": "High Heels",
+            "price": 5199.0,
+            "quantity": 1,
+            "size": "large"
+        },
+        {
+            "category": "Saree",
+            "color": "Green",
+            "image_url": "/static/images/saree3.webp",
+            "name": "Green Dyed Saree",
+            "price": 11727.27,
+            "quantity": 1,
+            "size": "large"
+        },
+        {
+            "category": "Saree",
+            "color": "Brown",
+            "image_url": "/static/images/saree8.webp",
+            "name": "Brown Jamdani Saree",
+            "price": 7100.0,
+            "quantity": 1,
+            "size": "medium"
+        },
+        {
+            "category": "Lehenga",
+            "color": "Blue",
+            "image_url": "/static/images/royal_blue_lehenga.webp",
+            "name": "Royal Blue Lehenga",
+            "price": 118000.0,
+            "quantity": 1,
+            "size": "xxl"
+        },
+        {
+            "category": "Panjabi",
+            "color": "Blue",
+            "image_url": "/static/images/panjabi4_blue.webp",
+            "name": "Blue Cotton Panjabi",
+            "price": 3000.0,
+            "quantity": 1,
+            "size": "medium"
+        },
+        {
+            "category": "Tops",
+            "color": "Blue",
+            "image_url": "/static/images/tops2.webp",
+            "name": "White Sky Blue Tops",
+            "price": 1280.0,
+            "quantity": 1,
+            "size": "xl"
+        },
+        {
+            "category": "Casual Shoe",
+            "color": "Brown",
+            "image_url": "/static/images/shoe22.jpg",
+            "name": "Summer Casual Shoe",
+            "price": 3600.0,
+            "quantity": 1,
+            "size": "small"
+        },
+        {
+            "category": "Blouse",
+            "color": "Black",
+            "image_url": "/static/images/blouse2.webp",
+            "name": "Women Ready Black Blouse",
+            "price": 1799.0,
+            "quantity": 1,
+            "size": "xxl"
+        }
+    ],
+    "prottoy@gmail.com": [
+        {
+            "category": "Formal Shoe",
+            "color": "Black",
+            "image_url": "/static/images/shoe2.jpeg",
+            "name": "Black Formal shoe",
+            "price": 2500.0,
+            "quantity": 1
+        },
+        {
+            "category": "Saree",
+            "color": "Blue",
+            "image_url": "/static/images/blue saree.png",
+            "name": "Royal Blue Saree",
+            "price": 18000.0,
+            "quantity": 1
+        }
+    ],
+    "kakarot@gmail.com": [
+        {
+            "category": "Saree",
+            "color": "Yellow/Red",
+            "image_url": "/static/images/orange_sharee.webp",
+            "name": "Marigold Appliqued and Embroidered Cotton Saree",
+            "price": 2086.36,
+            "quantity": 1,
+            "size": "xl"
+        },
+        {
+            "category": "Tops",
+            "color": "Black",
+            "image_url": "/static/images/tops5.avif",
+            "name": "Black Tops",
+            "price": 1240.0,
+            "quantity": 5,
+            "size": "medium"
+        },
+        {
+            "category": "Shawls",
+            "color": "Golden",
+            "image_url": "/static/images/shawl3.webp",
+            "name": "Golden Shawl",
+            "price": 4700.0,
+            "quantity": 1,
+            "size": "medium"
+        },
+        {
+            "category": "Formal Shoe",
+            "color": "Black",
+            "image_url": "/static/images/shoe4.jpg",
+            "name": "Black Formal Shinning Shoe",
+            "price": 2200.0,
+            "quantity": 1,
+            "size": "xl"
+        },
+        {
+            "category": "Lehenga",
+            "color": "Blue",
+            "image_url": "/static/images/royal_blue_lehenga.webp",
+            "name": "Royal Blue Lehenga",
+            "price": 118000.0,
+            "quantity": 3,
+            "size": "xl"
+        },
+        {
+            "category": "Blouse",
+            "color": "Black",
+            "image_url": "/static/images/blouse2.webp",
+            "name": "Women Ready Black Blouse",
+            "price": 1799.0,
+            "quantity": 2,
+            "size": "xl"
+        },
+        {
+            "category": "Blouse",
+            "color": "Black",
+            "image_url": "/static/images/blouse2.webp",
+            "name": "Women Ready Black Blouse",
+            "price": 1799.0,
+            "quantity": 2,
+            "size": "medium"
+        },
+        {
+            "category": "Panjabi",
+            "color": "Blue",
+            "image_url": "/static/images/panjabi4_blue.webp",
+            "name": "Blue Cotton Panjabi",
+            "price": 3000.0,
+            "quantity": 3,
+            "size": "small"
+        },
+        {
+            "category": "Formal Shoe",
+            "color": "Black",
+            "image_url": "/static/images/shoe4.jpg",
+            "name": "Black Formal Shinning Shoe",
+            "price": 2200.0,
+            "quantity": 3,
+            "size": "medium"
+        },
+        {
+            "category": "Panjabi",
+            "color": "Golden",
+            "image_url": "/static/images/panjabi3_golden.webp",
+            "name": "Golden Silk Panjabi",
+            "price": 5000.0,
+            "quantity": 3,
+            "size": "xxl",
+            "tags": [
+                "elegant",
+                "formal"
+            ]
+        }
+    ],
+    "sawon@gmail.com": [
+        {
+            "category": "Ethnic",
+            "color": "Green",
+            "image_url": "/static/images/selowar4.webp",
+            "name": "Salowar Green Kamiz",
+            "price": 4899.0,
+            "quantity": 4,
+            "size": "xl",
+            "tags": [
+                "casual"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "White/Black",
+            "image_url": "/static/images/classic_black_sweater.jpg",
+            "name": "Classic Black Ladies Sweater",
+            "price": 3000.0,
+            "quantity": 3,
+            "size": "xl",
+            "tags": [
+                "sad"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "Navy",
+            "image_url": "/static/images/navy_blue.png",
+            "name": "Classic Navy Blue Ladies Sweater",
+            "price": 3000.0,
+            "quantity": 2,
+            "size": "xl",
+            "tags": [
+                "sad"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "Grey",
+            "image_url": "/static/images/grey.jpg",
+            "name": "Grey Sweater",
+            "price": 3000.0,
+            "quantity": 3,
+            "size": "xl",
+            "tags": [
+                "sad"
+            ]
+        },
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 12900.0,
+            "quantity": 3,
+            "size": "large",
+            "tags": [
+                "happy"
+            ]
+        },
+        {
+            "category": "Tops",
+            "color": "Maroon",
+            "image_url": "/static/images/tops3.jpg",
+            "name": "Maroon Tops",
+            "price": 1570.0,
+            "quantity": 3,
+            "size": "large",
+            "tags": [
+                "casual",
+                "comfortable"
+            ]
+        },
+        {
+            "category": "Tops",
+            "color": "Black",
+            "image_url": "/static/images/tops6.jpg",
+            "name": "Printed Tops",
+            "price": 1545.0,
+            "quantity": 10,
+            "size": "large",
+            "tags": [
+                "casual",
+                "comfortable"
+            ]
+        }
+    ],
+    "sharthopor@gmail.com": [
+        {
+            "category": "Sweater",
+            "color": "Navy",
+            "image_url": "/static/images/navy_blue.png",
+            "name": "Classic Navy Blue Ladies Sweater",
+            "price": 3000.0,
+            "quantity": 7,
+            "size": "xxl",
+            "tags": [
+                "sad"
+            ]
+        }
+    ],
+    "angana@gmail.com": [
+        {
+            "category": "Shawls",
+            "color": "Black and Blue",
+            "image_url": "/static/images/women_pure_wool_shawl.webp",
+            "name": "Women Pure Wool Shawl",
+            "price": 4200.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ]
+        },
+        {
+            "category": "Saree",
+            "color": "Yellow/Red",
+            "image_url": "/static/images/orange_sharee.webp",
+            "name": "Marigold Appliqued and Embroidered Cotton Saree",
+            "price": 2086.36,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "happy"
+            ]
+        },
+        {
+            "category": "Tops",
+            "color": "Black",
+            "image_url": "/static/images/tops5.avif",
+            "name": "Black Tops",
+            "price": 1240.0,
+            "quantity": 2,
+            "size": "xl",
+            "tags": [
+                "casual",
+                "comfortable"
+            ]
+        },
+        {
+            "category": "Lehenga",
+            "color": "Golden",
+            "image_url": "/static/images/lehenga3.jpg",
+            "name": "Golden Lehenga",
+            "price": 338000.0,
+            "quantity": 2,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "White/Black",
+            "id": 3,
+            "image_url": "/static/images/casual_ladies_sweater.jpg",
+            "name": "Casual Ladies Sweater",
+            "price": 2000.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "casual",
+                "normal"
+            ]
+        },
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "id": 1,
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 12900.0,
+            "quantity": 3,
+            "size": "xxl",
+            "tags": [
+                "happy",
+                "warm"
+            ]
+        },
+        {
+            "category": "Blouse",
+            "color": "Orange",
+            "image_url": "/static/images/blouse4.webp",
+            "name": "Women Ready Orange Blouse",
+            "price": 1659.0,
+            "quantity": 2,
+            "size": "medium",
+            "tags": [
+                "casual",
+                "comfortable",
+                "favourite"
+            ]
+        },
+        {
+            "category": "Casual Shoe",
+            "color": "Blue",
+            "image_url": "/static/images/shoe12.jpg",
+            "name": "Sports Ajanta Shoe",
+            "price": 4500.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "casual"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "White/Black",
+            "image_url": "/static/images/classic_black_sweater.jpg",
+            "name": "Classic Black Ladies Sweater",
+            "price": 3000.0,
+            "quantity": 20,
+            "size": "small",
+            "tags": [
+                "sad",
+                "warm"
+            ]
+        }
+    ],
+    "tariq@gmail.com": [
+        {
+            "category": "Panjabi",
+            "color": "Red",
+            "image_url": "/static/images/panjabi1_red.webp",
+            "name": "Red Cotton Panjabi",
+            "price": 3800.0,
+            "quantity": 4,
+            "size": "xxl",
+            "tags": [
+                "happy",
+                "normal"
+            ]
+        },
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "id": 61,
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 11650.867199999999,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "happy",
+                "warm"
+            ],
+            "updated_price": 11650.867199999999
+        },
+        {
+            "category": "Formal Shoe",
+            "color": "Black",
+            "id": 32,
+            "image_url": "/static/images/shoe4.jpg",
+            "name": "Black Formal Shinning Shoe",
+            "price": 1986.9696,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "formal"
+            ],
+            "updated_price": 1986.9696
+        },
+        {
+            "category": "Pant",
+            "color": "Black",
+            "id": 52,
+            "image_url": "/static/images/pant5.jpeg",
+            "name": "Fit Chino Formal Pant",
+            "price": 1534.4824319999998,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "formal",
+                "elegant"
+            ],
+            "updated_price": 1534.4824319999998
+        }
+    ],
+    "jhumu@gmail.com": [
+        {
+            "category": "Sweater",
+            "color": "Grey",
+            "image_url": "/static/images/grey.jpg",
+            "name": "Grey Sweater",
+            "price": 3000.0,
+            "quantity": 6,
+            "size": "xl",
+            "tags": [
+                "sad"
+            ]
+        },
+        {
+            "category": "Sweater",
+            "color": "White/Black",
+            "image_url": "/static/images/classic_black_sweater.jpg",
+            "name": "Classic Black Ladies Sweater",
+            "price": 3000.0,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "sad",
+                "warm"
+            ]
+        },
+        {
+            "category": "Saree",
+            "color": "Blue",
+            "image_url": "/static/images/blue saree.png",
+            "name": "Royal Blue Saree",
+            "price": 18000.0,
+            "quantity": 5,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ]
+        },
+        {
+            "category": "Formal Shoe",
+            "color": "Black",
+            "image_url": "/static/images/shoe2.jpeg",
+            "name": "Black Formal Shoe",
+            "price": 2500.0,
+            "quantity": 3,
+            "size": "large",
+            "tags": [
+                "formal"
+            ]
+        },
+        {
+            "category": "Tops",
+            "color": "Black",
+            "image_url": "/static/images/tops5.avif",
+            "name": "Black Tops",
+            "price": 1119.9283199999998,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "casual",
+                "comfortable"
+            ],
+            "updated_price": 559.9641599999999
+        },
+        {
+            "category": "Blouse",
+            "color": "Black",
+            "image_url": "/static/images/blouse2.webp",
+            "name": "Women Ready Black Blouse",
+            "price": 812.3996159999999,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "formal",
+                "elegant"
+            ],
+            "updated_price": 812.3996159999999
+        },
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 5825.433599999999,
+            "quantity": 5,
+            "size": "medium",
+            "tags": [
+                "happy",
+                "warm"
+            ],
+            "updated_price": 5825.433599999999
+        },
+        {
+            "category": "Heels",
+            "color": "Black",
+            "image_url": "/static/images/heels1.jpg",
+            "name": "High Heels",
+            "price": 2347.7852159999998,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ],
+            "updated_price": 2347.7852159999998
+        },
+        {
+            "category": "Tops",
+            "color": "Blue",
+            "image_url": "/static/images/tops2.webp",
+            "name": "White Sky Blue Tops",
+            "price": 578.02752,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "casual",
+                "comfortable"
+            ],
+            "updated_price": 578.02752
+        },
+        {
+            "category": "Shawls",
+            "color": "Black and Blue",
+            "image_url": "/static/images/women_pure_wool_shawl.webp",
+            "name": "Women Pure Wool Shawl",
+            "price": 1896.6527999999998,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ],
+            "updated_price": 1896.6527999999998
+        },
+        {
+            "category": "Pant",
+            "color": "Black",
+            "image_url": "/static/images/pant5.jpeg",
+            "name": "Fit Chino Formal Pant",
+            "price": 767.2412159999999,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "formal",
+                "elegant"
+            ],
+            "updated_price": 767.2412159999999
+        },
+        {
+            "category": "Lehenga",
+            "color": "Golden",
+            "image_url": "/static/images/lehenga3.jpg",
+            "name": "Golden Lehenga",
+            "price": 152635.392,
+            "quantity": 2,
+            "size": "medium",
+            "tags": [
+                "elegant"
+            ],
+            "updated_price": 152635.392
+        }
+    ],
+    "sanjidarimu12@gmail.com": [
+        {
+            "category": "Saree",
+            "color": "Beige/Red",
+            "id": 61,
+            "image_url": "/static/images/saree7.jpg",
+            "name": "Beige and Red Saree",
+            "price": 11650.867199999999,
+            "quantity": 1,
+            "size": "medium",
+            "tags": [
+                "happy",
+                "warm"
+            ],
+            "updated_price": 11650.867199999999
+        }
+    ]
+}
