@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fabric Care Instructions</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .care-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .back-btn {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .go-back-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .go-back-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Review Section */
+        .review-section {
+            margin-top: 40px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .review-card {
+            background-color: white;
+            border: 1px dashed #ddd;
+            padding: 20px;
+            margin-bottom: 20px;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-card .stars {
+            color: #ff9800;
+            font-size: 18px;
+        }
+
+        .review-card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .review-card p {
+            color: #555;
+        }
+
+        .review-card .author {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .add-to-cart-btn {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .add-to-cart-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        .why-us h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .why-us-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+        }
+
+        .why-us-icon {
+            text-align: center;
+            max-width: 100px;
+        }
+
+        .why-us-icon img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 10px;
+        }
+
+        .why-us-icon p {
+            color: #555;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fabric Care Instructions for {{ fabric }}</h1>
+
+        <!-- Display Fabric Care Instructions -->
+        {% if fabric == 'silk' %}
+            <div class="care-title">Silk Care Instructions</div>
+            <p>Silk is a luxurious fabric that requires special care. It's recommended to dry clean silk garments to maintain their integrity and appearance. If hand washing is necessary, use cold water and a mild detergent. Avoid wringing the fabric to prevent damage. Iron on low heat while the fabric is still damp to avoid burning or damaging the fibers. Always store silk garments in a cool, dry place away from direct sunlight.</p>
+        {% elif fabric == 'cotton' %}
+            <div class="care-title">Cotton Care Instructions</div>
+            <p>Cotton is a natural fiber known for its comfort and breathability. It's relatively easy to care for, but proper maintenance is essential to ensure the fabric's longevity. Cotton garments should be washed in cold or lukewarm water to avoid shrinkage. Use a mild detergent and avoid using bleach, as it can weaken the fabric. For stubborn stains, pre-treat with a stain remover before washing.</p>
+            <p>Dry cotton garments in the shade to prevent fading. You can either air dry them or use a tumble dryer on a low heat setting. Iron cotton fabric while it is still damp for the best results, using a high heat setting. If the fabric is dry, mist it lightly with water before ironing to smooth out wrinkles.</p>
+            <p>For colored cotton garments, wash them separately to prevent color bleeding. Always check care labels for any specific instructions that may apply to your cotton items, such as dry cleaning or special washing cycles.</p>
+        {% elif fabric == 'cotton-silk' %}
+            <div class="care-title">Cotton-Silk Care Instructions</div>
+            <p>Cotton-silk fabric combines the comfort of cotton with the luxurious finish of silk. To maintain the fabric's quality, hand wash in cold water or machine wash on a delicate cycle. Use a mild detergent and avoid wringing the fabric. Dry flat or hang to dry, away from direct sunlight. Iron on a low setting while still damp to maintain its smoothness and shine. Always avoid bleach or harsh chemicals that may damage the delicate fabric.</p>
+        {% elif fabric == 'chiffon' %}
+            <div class="care-title">Chiffon Care Instructions</div>
+            <p>Chiffon is a lightweight and delicate fabric. Always hand wash chiffon garments with cold water, using a mild detergent. If machine washing, place the fabric in a mesh bag to protect it from damage. Avoid wringing or twisting, as this can cause the fabric to lose its shape. Air dry the fabric and avoid direct heat. Iron with a low heat setting, and use a cloth between the iron and the chiffon to protect it from direct heat contact.</p>
+        {% elif fabric == 'georgette' %}
+            <div class="care-title">Georgette Care Instructions</div>
+            <p>Georgette is a sheer and delicate fabric that needs to be handled with care. Hand wash in cold water with a mild detergent or use a gentle cycle on your washing machine. Always air dry georgette garments by hanging them or laying them flat. Iron with a low heat setting while the fabric is still damp, using a cloth between the fabric and the iron to prevent damage.</p>
+        {% endif %}
+
+        <!-- Review Section -->
+        <div class="review-section">
+            {% if fabric == 'silk' %}
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review1.png') }}" alt="Review Image 1">
+                    <div class="stars">★★★★★</div>
+                    <p>"The product was awesome. I have ordered silk threads and red beads drop shape. Thank you so much design cart."</p>
+                    <p class="author">- Tanjina Yeasmin</p>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review2.png') }}" alt="Review Image 2">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Amazing products. This is the 3rd or 4th time I'm purchasing crystal beads from here. Very good quality. I definitely would recommend it."</p>
+                    <p class="author">- Prottoy Saha</p>
+                </div>
+            {% elif fabric == 'cotton' %}
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review3.jpg') }}" alt="Review Image 3">
+                    <div class="stars">★★★★★</div>
+                    <p>"Very innovative designs...loved this in a reasonable price...quick delivery too."</p>
+                    <p class="author">- Jovitha Vimal</p>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review4.jpg') }}" alt="Review Image 4">
+                    <div class="stars">★★★★☆</div>
+                    <p>"The cotton fabric is very soft and breathable, perfect for the hot summer months. Will definitely buy again."</p>
+                    <p class="author">- Ramesh Kumar</p>
+                </div>
+            {% elif fabric == 'cotton-silk' %}
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review5.png') }}" alt="Review Image 5">
+                    <div class="stars">★★★★★</div>
+                    <p>"Best fabric quality I've ever purchased. The cotton-silk blend is so smooth and comfortable to wear."</p>
+                    <p class="author">- Sanjida Khanom</p>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review6.png') }}" alt="Review Image 6">
+                    <div class="stars">★★★★☆</div>
+                    <p>"The fabric is great! It's soft, and I love the texture. Perfect for both casual and formal wear."</p>
+                    <p class="author">- Tariq Hossain</p>
+                </div>
+            {% elif fabric == 'chiffon' %}
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review7.png') }}" alt="Review Image 7">
+                    <div class="stars">★★★★★</div>
+                    <p>"Light and breezy! Chiffon is always my go-to for evening wear, and this one didn't disappoint!"</p>
+                    <p class="author">- Aranima Archita</p>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review8.png') }}" alt="Review Image 8">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Great quality, very delicate. I had to be careful while washing, but the end result was stunning!"</p>
+                    <p class="author">- Archi</p>
+                </div>
+            {% elif fabric == 'georgette' %}
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review9.png') }}" alt="Review Image 9">
+                    <div class="stars">★★★★★</div>
+                    <p>"Georgette is my favorite fabric, and this one has amazing quality. Great for making evening dresses!"</p>
+                    <p class="author">- Riba</p>
+                </div>
+                <div class="review-card">
+                    <img src="{{ url_for('static', filename='images/review10.png') }}" alt="Review Image 10">
+                    <div class="stars">★★★★☆</div>
+                    <p>"Really good fabric, soft and lightweight. I highly recommend it for summer dresses!"</p>
+                    <p class="author">- Tan Jina</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <!-- Why Us Section -->
+        <div class="why-us">
+            <h2>Why Us?</h2>
+            <div class="why-us-icons">
+                <div class="why-us-icon">
+                    <img src="{{ url_for('static', filename='images/made_in_bd.png') }}" alt="Made In Bangladesh">
+                    <p>Made In Bangladesh</p>
+                </div>
+                <div class="why-us-icon">
+                    <img src="{{ url_for('static', filename='images/assured_quality.png') }}" alt="Assured Quality">
+                    <p>Assured Quality Products</p>
+                </div>
+                <div class="why-us-icon">
+                    <img src="{{ url_for('static', filename='images/easy_returns.png') }}" alt="Easy Returns">
+                    <p>Easy Returns</p>
+                </div>
+                <div class="why-us-icon">
+                    <img src="{{ url_for('static', filename='images/cash_on_delivery.png') }}" alt="Cash On Delivery">
+                    <p>Cash On Delivery PAN India</p>
+                </div>
+                <div class="why-us-icon">
+                    <img src="{{ url_for('static', filename='images/shipping_globally.png') }}" alt="Shipping Globally">
+                    <p>Shipping Globally</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back Button -->
+        <div class="back-btn">
+            <a href="{{ url_for('view_fabrics') }}" class="go-back-btn">Back to Fabrics</a>
+        </div>
+    </div>
+</body>
+</html>

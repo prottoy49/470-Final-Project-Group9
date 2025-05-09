@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('{{ url_for("static", filename="images/weather1.webp") }}');
+            background-size: cover;
+            background-position: center center;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .feedback-container {
+            background-color: rgba(255, 255, 255, 0.85);  /* Semi-transparent white */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            height: 120px;
+        }
+
+        .rating-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .rating {
+            display: flex;
+            gap: 10px;
+        }
+
+        .rating input {
+            cursor: pointer;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background-color: #f8bbd0;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+        }
+
+        .back-btn:hover {
+            background-color: #ff66b2;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="feedback-container">
+        <h2>Submit Feedback</h2>
+
+        <form action="{{ url_for('submit_feedback') }}" method="POST">
+            <div class="form-group">
+                <label for="full_name">Full Name:</label>
+                <input type="text" id="full_name" name="full_name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="feedback">Your Feedback:</label>
+                <textarea id="feedback" name="feedback" required></textarea>
+            </div>
+
+            <div class="form-group rating-container">
+                <label for="rating">Rating (optional):</label>
+                <div class="rating">
+                    <input type="radio" id="rating_5" name="rating" value="5">
+                    <label for="rating_5">5</label>
+
+                    <input type="radio" id="rating_4" name="rating" value="4">
+                    <label for="rating_4">4</label>
+
+                    <input type="radio" id="rating_3" name="rating" value="3">
+                    <label for="rating_3">3</label>
+
+                    <input type="radio" id="rating_2" name="rating" value="2">
+                    <label for="rating_2">2</label>
+
+                    <input type="radio" id="rating_1" name="rating" value="1">
+                    <label for="rating_1">1</label>
+                </div>
+            </div>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+
+        <a href="{{ url_for('dashboard') }}" class="back-btn">Go Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

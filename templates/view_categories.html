@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Closet Items</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        /* Style for the success message box */
+        .success-message {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            z-index: 9999;
+            display: none; /* Initially hidden */
+            font-size: 14px;
+        }
+
+        /* Style for the new buttons */
+        .view-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-bottom: 10px;
+        }
+
+        .view-buttons a {
+            text-decoration: none;
+            background-color: #4CAF50; /* Green button */
+            color: white;
+            padding: 10px 20px;
+            margin-right: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .view-buttons a:hover {
+            background-color: #45a049; /* Darker green on hover */
+        }
+
+        /* Style for the existing Sort by and Filter by color sections */
+        .sorting-options, .color-palette, .category-select {
+            margin-top: 20px;
+        }
+
+        /* Style for the Zoom Container */
+        .zoom-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+        }
+
+        .zoom-image {
+            width: 100%;
+            height: auto;
+            max-height: 300px;
+            object-fit: cover;
+        }
+
+        /* Zoom Glass Effect */
+        .zoom-glass {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: crosshair;
+            display: none;
+            border-radius: 50%;
+        }
+
+        /* Style for the Quick View button */
+        .grid-item {
+            position: relative;
+        }
+
+        /* Initially hide the Quick View button */
+        .quick-view-button {
+            position: absolute;
+            top: 50%; /* Center vertically */
+            left: 50%; /* Center horizontally */
+            transform: translate(-50%, -50%); /* Correct centering */
+            background-color: rgba(0, 0, 0, 0.5); /* Transparent black background */
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px; /* Rounded corners */
+            font-size: 14px;
+            text-align: center;
+            display: none; /* Initially hidden */
+            cursor: pointer;
+        }
+
+        /* Show Quick View button when hovering over the item */
+        .grid-item:hover .quick-view-button {
+            display: block; /* Show when hovering */
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>View Closet Items, {{ username }} 👋</h1>
+
+        <a href="{{ url_for('logout') }}">
+            <button>Logout</button> 
+        </a>
+
+        <!-- Success Message Pop-up -->
+        <div id="success-message" class="success-message" style="display: none;">
+            {{ success_message }}
+        </div>
+
+        <!-- View Buttons (View Categories and Fabrics) -->
+        <div class="view-buttons">
+            <a href="{{ url_for('dashboard') }}">Go to Dashboard</a>
+            <a href="{{ url_for('view_fabrics') }}">View Fabrics</a>
+        </div>
+
+        <!-- Sorting Options (Sort by Color or Price) -->
+        <div class="sorting-options">
+            <label for="sort_by">Sort by: </label>
+            <select id="sort_by" onchange="window.location.href=this.value">
+                <option value="?sort_by=color" {% if request.args.get('sort_by') == 'color' %}selected{% endif %}>Color</option>
+                <option value="?sort_by=price" {% if request.args.get('sort_by') == 'price' %}selected{% endif %}>Price</option>
+            </select>
+        </div>
+
+        <!-- Category Selection Dropdown -->
+        <div class="category-select">
+            <form method="GET">
+                <label for="category">Category: </label>
+                <select id="category" name="category" onchange="this.form.submit()">
+                    <option value="" {% if not request.args.get('category') %}selected{% endif %}>All Categories</option>
+                    <option value="Saree" {% if request.args.get('category') == 'Saree' %}selected{% endif %}>Saree</option>
+                    <option value="Sweater" {% if request.args.get('category') == 'Sweater' %}selected{% endif %}>Ladies Sweater</option>
+                    <option value="Lehenga" {% if request.args.get('category') == 'Lehenga' %}selected{% endif %}>Lehenga</option>
+                    <option value="Panjabi" {% if request.args.get('category') == 'Panjabi' %}selected{% endif %}>Panjabi</option>
+                </select>
+            </form>
+        </div>
+
+        <!-- Color Palette for Filtering -->
+        <div class="color-palette">
+            <h3>Filter by Color:</h3>
+            <a href="?color_filter=red" class="color-swatch" style="background-color: red;"></a>
+            <a href="?color_filter=blue" class="color-swatch" style="background-color: blue;"></a>
+            <a href="?color_filter=green" class="color-swatch" style="background-color: green;"></a>
+            <a href="?color_filter=yellow" class="color-swatch" style="background-color: yellow;"></a>
+            <a href="?color_filter=pink" class="color-swatch" style="background-color: pink;"></a>
+            <a href="?color_filter=teal" class="color-swatch" style="background-color: teal;"></a>
+            <a href="?color_filter=golden" class="color-swatch" style="background-color: gold;"></a>
+            <a href="?color_filter=beige" class="color-swatch" style="background-color: beige;"></a>
+            <a href="?color_filter=white" class="color-swatch" style="background-color: white;"></a>
+            <a href="?color_filter=black" class="color-swatch" style="background-color: black;"></a>
+            <a href="?color_filter=grey" class="color-swatch" style="background-color: grey;"></a>
+            <a href="?color_filter=navy" class="color-swatch" style="background-color: navy;"></a>
+            <a href="?color_filter=brown" class="color-swatch" style="background-color: brown;"></a>
+            <a href="?color_filter=" class="color-swatch">Clear Filter</a>
+        </div>
+
+        <!-- Grid Display of Closet Items -->
+        <div class="grid-container">
+            {% for item in closet_items %}
+                {% if request.args.get('category') is none or item['category'] == request.args.get('category') %}
+                    <div class="grid-item">
+                        <div class="zoom-container">
+                            <img src="{{ item.image_url }}" alt="{{ item.name }}" class="zoom-image" id="zoom-image-{{ loop.index }}">
+
+                            <!-- Zoom Glass Effect (for showing the zoomed area) -->
+                            <div class="zoom-glass" id="zoom-glass-{{ loop.index }}"></div>
+                        </div>
+
+                        <!-- Quick View Button -->
+                        <div class="quick-view-button">
+                            <a href="{{ url_for('quick_view', item_name=item.name) }}">Quick View</a>
+                        </div>
+
+                        <div class="item-details">
+                            <h3>{{ item.name }}</h3>
+                            <p>Category: {{ item.category }}</p>
+                            <p>Color: {{ item.color }}</p>
+                            <p>Price: Tk {{ item.price }}</p>
+                            <p>Size: {{ item.size | capitalize }}</p>
+
+                            <form action="{{ url_for('add_to_cart', item_name=item.name | urlencode) }}" method="POST">
+                                <input type="number" name="quantity" value="1" min="1" style="width: 50px;">
+                                <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                            </form>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- View Cart Button (fixed at the top right) -->
+        <div class="view-cart-container">
+            <a href="{{ url_for('view_cart') }}" class="view-cart-btn">View Cart</a>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = function() {
+            // Retrieve the success message from the session
+            var successMessage = "{{ success_message }}";
+            
+            // If a success message exists, show the pop-up
+            if (successMessage) {
+                var successElement = document.getElementById("success-message");
+                successElement.innerHTML = successMessage;  // Inject the success message content
+                successElement.style.display = "block";  // Show the success message
+
+                // Hide the success message after 1 second
+                setTimeout(function() {
+                    successElement.style.display = "none";  // Hide after 1 second
+                }, 1000);
+            }
+        };
+    </script>
+</body>
+</html>

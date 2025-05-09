@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Cart</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <script>
+        window.onload = function() {
+            var successMessage = "{{ session.get('success_message') }}"; // Get success message from session
+            if (successMessage) {
+                var successElement = document.getElementById("success-message");
+                successElement.innerHTML = successMessage;
+                successElement.style.display = "block"; // Show message
+                setTimeout(function() {
+                    successElement.style.display = "none"; // Hide after 1 second
+                }, 1000);
+            }
+        };
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+
+        <!-- Success Message Pop-up -->
+        <div id="success-message" class="success-message" style="display: none;">
+            <!-- Success message will be injected here -->
+        </div>
+
+        <!-- Cart Items in Grid Layout -->
+        <div class="grid-container">
+            {% if cart_items %}
+                {% for item in cart_items %}
+                <div class="grid-item">
+                    <img src="{{ item.image_url }}" alt="{{ item.name }}">
+                    <div class="item-details">
+                        <h3>{{ item.name }}</h3>
+                        
+                        <!-- Display original price (crossed out) and discounted price -->
+                        <p>
+                            {% if item.updated_price and item.updated_price != item.price %}
+                                <span style="text-decoration: line-through; color: red;">Tk {{ item.price }}</span> 
+                                Tk {{ item.updated_price }} 
+                                <small>({{ ((item.price - item.updated_price) / item.price * 100)|round(2) }}% off)</small>
+                            {% else %}
+                                Tk {{ item.price }} 
+                            {% endif %}
+                        </p>
+
+                        <p>
+                            Tk 
+                            {% if item.updated_price and item.updated_price != item.price %}
+                                {{ item.updated_price }} * {{ item.quantity }} = 
+                                Total: Tk {{ item.updated_price * item.quantity }}
+                            {% else %}
+                                {{ item.price }} * {{ item.quantity }} = 
+                                Total: Tk {{ item.price * item.quantity }}
+                            {% endif %}
+                        </p>
+                        
+
+                        <p>Size: {{ item.size | capitalize }}</p>
+
+                        <!-- Use POST method for removing an item from the cart -->
+                        <form action="{{ url_for('remove_from_cart', item_id=loop.index0) }}" method="POST">
+                            <button type="submit" class="btn">Remove</button>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <p>Your cart is empty!</p>
+            {% endif %}
+        </div>
+
+        <!-- Go Back Button -->
+        <div class="go-back-container">
+            <a href="{{ url_for('view_closet') }}" class="go-back-btn">Go Back</a>
+        </div>
+
+    </div>
+
+    <!-- Fixed Total Price (without a box) -->
+    <div class="total-price">
+        <p>Total Price: Tk {{ total_price }}</p>
+    </div>
+
+    <!-- Fixed Clear Cart Button inside a small box -->
+    <div class="clear-cart-box">
+        <!-- Use POST method for clearing the cart -->
+        <form action="{{ url_for('clear_cart') }}" method="POST">
+            <button type="submit" class="clear-cart-btn">Clear Cart</button>
+        </form>
+    </div>
+    <!-- Rest of the content -->
+
+    <!-- Add Payment Button -->
+    <div class="payment-container" style="text-align: center; margin-top: 20px;">
+        <form action="{{ url_for('confirm_payment') }}" method="POST">
+            <button type="submit" class="btn">Confirm Payment</button> 
+        </form>
+    </div>
+
+    <!-- Success Message Pop-up -->
+    <div id="payment-success-message" class="payment-success-message" style="display: none;">
+        Payment has been confirmed!
+    </div>
+
+    <script>
+        // Handle Payment Confirmation
+        document.getElementById('payment-button').onclick = function() {
+            var successMessage = document.getElementById('payment-success-message');
+            successMessage.style.display = 'block';
+
+            // Hide the success message after 3 seconds
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 3000);
+        };
+    </script>
+
+</body>
+
+</html>

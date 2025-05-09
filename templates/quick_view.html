@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quick View - {{ item.name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        /* Modal content */
+        .modal {
+            display: block;  /* Show the modal */
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4); /* Black background with opacity */
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 60%;
+            text-align: center;
+        }
+
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            max-width: 300px;
+            margin-bottom: 15px;
+        }
+
+        /* Close button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Dropdown and Add to Cart styling */
+        select, button {
+            padding: 10px 20px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color:rgb(204, 174, 105);
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .size-dropdown {
+            width: 120px;
+        }
+
+        .quantity-input {
+            width: 50px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Modal -->
+<div id="quickViewModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2>{{ item.name }}</h2>
+        <img src="{{ item.image_url }}" alt="{{ item.name }}">
+
+        <!-- Price Display with Discount Logic -->
+        <p>
+            {% if item.updated_price and item.updated_price != item.price %}
+                <span style="text-decoration: line-through; color: red;">Tk {{ item.price }}</span> 
+                Tk {{ item.updated_price }} 
+                <small>({{ ((item.price - item.updated_price) / item.price * 100)|round(2) }}% off)</small>
+            {% else %}
+                Tk {{ item.price }} 
+            {% endif %}
+        </p>
+
+        <p>Category: {{ item.category }}</p>
+        <p>Color: {{ item.color }}</p>
+
+        <!-- Size Dropdown -->
+        <label for="size">Select Size:</label>
+        <select id="size" class="size-dropdown">
+            <option value="small">Small</option>
+            <option value="medium" selected>Medium</option>
+            <option value="large">Large</option>
+            <option value="xl">XL</option>
+            <option value="xxl">XXL</option>
+        </select>
+
+        <!-- Quantity Input Field -->
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="1" min="1" class="quantity-input">
+
+        <!-- Add to Cart Button -->
+        <form action="{{ url_for('add_to_cart', item_name=item.name) }}" method="POST">
+            <input type="hidden" name="size" id="selected_size" value="medium">
+            <input type="hidden" name="quantity" id="selected_quantity" value="1">
+            <button type="submit" id="add-to-cart-btn">Add to Cart</button>
+        </form>
+
+        <!-- Fabric Care Warning Button -->
+        <button type="button" id="warningButton">Warning❗❗</button>
+
+        <!-- Hidden Warning Section -->
+        <div id="fabricWarning" style="display:none;">
+            <p>Fabric Care Instructions: <br>
+            {% if item.name == 'Beige and Red Saree' %}
+                Dry clean only. Do not bleach. Iron on low heat.
+            {% elif item.name== 'Women Pure Wool Shawl' %}
+                Machine wash cold. Do not bleach. Iron on medium heat.
+                {% elif item.name== 'Salowar White Green Kamiz' %}
+                Hand wash cold. Do not wring. Dry flat.
+                {% elif item.name== 'Salowar Green Kamiz' %}
+            Dry clean only. Do not tumble dry
+            {% elif item.name== 'Salowar White Green Kamiz' %}
+            Hand wash cold. Do not wring. Dry flat.
+            {% elif item.name== 'Royal Blue Saree' %}
+            Machine wash cold. Do not bleach. Iron on medium heat.
+            {% else %}
+                        
+                no care instructions available.
+            {% endif %}
+            </p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Function to close the modal
+    function closeModal() {
+        document.getElementById('quickViewModal').style.display = "none";
+    }
+
+    // Update hidden input with selected size
+    document.getElementById('size').addEventListener('change', function () {
+        document.getElementById('selected_size').value = this.value;
+    });
+
+    // Update hidden input with selected quantity
+    document.getElementById('quantity').addEventListener('input', function () {
+        document.getElementById('selected_quantity').value = this.value;
+    });
+
+    // Toggle Fabric Care Instructions
+    document.getElementById('warningButton').addEventListener('click', function() {
+        var warningDiv = document.getElementById('fabricWarning');
+        if (warningDiv.style.display === "none") {
+            warningDiv.style.display = "block";  // Show the warning
+        } else {
+            warningDiv.style.display = "none";   // Hide the warning
+        }
+    });
+
+    // Close modal when clicking outside the modal content
+    window.onclick = function(event) {
+        if (event.target == document.getElementById('quickViewModal')) {
+            closeModal();
+        }
+    };
+</script>
+
+</body>
+</html>
