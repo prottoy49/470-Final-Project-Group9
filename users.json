@@ -1,0 +1,73 @@
+[
+    {
+        "username": "abc",
+        "email": "abc@gmail.com",
+        "password": "123",
+        "banned": true
+    },
+    {
+        "username": "riba",
+        "email": "riba@gmail.com",
+        "password": "123",
+        "banned": false
+    },
+    {
+        "username": "rashford",
+        "email": "rashford@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Tariq",
+        "email": "tariq@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Prottoy Saha",
+        "email": "prottoy@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Son Goku",
+        "email": "kakarot@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Sawon Paul",
+        "email": "sawon@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Mainul Pantho",
+        "email": "sharthopor@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Angana Saha",
+        "email": "angana@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "Jhumu Saha",
+        "email": "jhumu@gmail.com",
+        "password": "1234",
+        "banned": true
+    },
+    {
+        "username": "daisy",
+        "email": "daisy22@gmail.com",
+        "password": "1234",
+        "banned": false
+    },
+    {
+        "username": "sanjida",
+        "email": "sanjidarimu12@gmail.com",
+        "password": "1234"
+    }
+]

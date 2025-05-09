@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fabrics</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <style>
+        .fabric-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin: 10px;
+            cursor: pointer;
+            flex-direction: column;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fabric-item:hover {
+            background-color: #f5f5f5;
+            transform: scale(1.05);
+        }
+
+        .fabric-item img {
+            width: 80%; /* Adjust to fit your needs */
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .fabric-item h3 {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .fabric-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .view-instructions-btn {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .view-instructions-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Fabrics</h1>
+
+        <p>Click on a fabric type to view related items and care instructions.</p>
+
+        <!-- Fabric types -->
+        <div class="fabric-list">
+            <div class="fabric-item">
+                <img src="{{ url_for('static', filename='images/fabric_image/fabric3_silk.jpg') }}" alt="Silk">
+                <div>
+                    <h3>Silk</h3>
+                    <p>Luxurious and smooth fabric.</p>
+                    <!-- Redirecting to fabric instructions page -->
+                    <a href="{{ url_for('fabric_instructions', fabric='silk') }}" class="view-instructions-btn">View Fabric Instructions</a>
+                </div>
+            </div>
+            <div class="fabric-item">
+                <img src="{{ url_for('static', filename='images/fabric_image/fabric5_cottonsilk.webp') }}" alt="Cotton Silk">
+                <div>
+                    <h3>Cotton Silk</h3>
+                    <p>Soft and lustrous fabric.</p>
+                    <!-- Redirecting to fabric instructions page -->
+                    <a href="{{ url_for('fabric_instructions', fabric='cotton-silk') }}" class="view-instructions-btn">View Fabric Instructions</a>
+                </div>
+            </div>
+            <div class="fabric-item">
+                <img src="{{ url_for('static', filename='images/fabric_image/fabric4_chiffon.webp') }}" alt="Chiffon">
+                <div>
+                    <h3>Chiffon</h3>
+                    <p>Delicate and sheer fabric.</p>
+                    <!-- Redirecting to fabric instructions page -->
+                    <a href="{{ url_for('fabric_instructions', fabric='chiffon') }}" class="view-instructions-btn">View Fabric Instructions</a>
+                </div>
+            </div>
+            <div class="fabric-item">
+                <img src="{{ url_for('static', filename='images/fabric_image/fabric1_Georgette.webp') }}" alt="Georgette">
+                <div>
+                    <h3>Georgette</h3>
+                    <p>Lightweight and bouncy fabric.</p>
+                    <!-- Redirecting to fabric instructions page -->
+                    <a href="{{ url_for('fabric_instructions', fabric='georgette') }}" class="view-instructions-btn">View Fabric Instructions</a>
+                </div>
+            </div>
+            <!-- Add more fabric items here -->
+        </div>
+    </div>
+</body>
+</html>
