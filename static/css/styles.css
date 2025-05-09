@@ -1,0 +1,241 @@
+/* General Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;  /* White background */
+    color: #333;  /* Dark text color for readability */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;  /* Dark text for headings */
+}
+
+/* Success Message Styling */
+.success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;  /* Green for success message */
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    width: auto;
+    z-index: 9999;
+}
+
+/* Payment Confirmation Success Message */
+.payment-success-message {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #4CAF50;  /* Green for success message */
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+    display: none; /* Initially hidden */
+}
+
+/* Grid Layout for Closet Items */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;  /* Light gray border */
+    padding: 10px;
+    text-align: center;
+    background-color: #f9f9f9;  /* Light gray background */
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.grid-item img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.item-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.item-details h3 {
+    font-size: 18px;
+    margin: 5px 0;
+    color: #333;  /* Dark text for item names */
+}
+
+.item-details p {
+    margin: 5px 0;
+}
+
+/* Buttons Styling */
+.btn, .view-cart-btn, .go-back-btn, .clear-cart-btn, .add-to-cart-btn {
+    padding: 10px 15px;
+    background-color: #007bff;  /* Blue button background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+}
+
+.btn:hover, .view-cart-btn:hover, .go-back-btn:hover, .clear-cart-btn:hover, .add-to-cart-btn:hover {
+    background-color: #0056b3;  /* Darker blue on hover */
+}
+
+/* Add to Cart button styled as a green rectangular box */
+.add-to-cart-btn {
+    padding: 10px 15px;
+    background-color: #28a745;  /* Green background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+}
+
+.add-to-cart-btn:hover {
+    background-color: #218838;  /* Darker green on hover */
+}
+
+/* Color Palette for Filtering */
+.color-palette {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.color-swatch {
+    width: 40px;
+    height: 40px;
+    margin: 0 10px;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    border: 2px solid #fff;
+}
+
+.color-swatch:hover {
+    border-color: #000;
+}
+
+/* View Cart Button (fixed at the top right) */
+.view-cart-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #007bff;  /* Blue for View Cart button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 999;
+}
+
+.view-cart-btn {
+    color: white;
+    text-decoration: none;
+}
+
+.view-cart-btn:hover {
+    background-color: #0056b3;  /* Slightly darker blue on hover */
+}
+
+/* Fixed Go Back Button (below the cart items) */
+.go-back-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.go-back-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.go-back-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Fixed Total Price (without a box) */
+.total-price {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #333;  /* Dark text */
+}
+
+/* Fixed Clear Cart Button inside a small box at the top-right */
+.clear-cart-box {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;  /* Red for Clear Cart button */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    width: auto;
+    text-align: center;
+    z-index: 999;
+}
+
+.clear-cart-btn {
+    background-color: #f44336;  /* Red background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;  /* Remove border */
+    text-align: center;
+    width: 100%;  /* Make button stretch the container */
+}
+
+.clear-cart-btn:hover {
+    background-color: #e53935;  /* Darker red on hover */
+}
+
+/* Responsive design for the grid layout */
+@media (max-width: 1200px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 900px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
