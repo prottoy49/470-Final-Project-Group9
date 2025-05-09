@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Porunga</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Chatbox container */
+        .chatbox {
+            width: 70%;
+            height: 80vh;
+            border-radius: 15px;
+            padding: 20px;
+            background-color: #f8bbd0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+        }
+
+        /* User and bot message styles */
+        .user-message, .bot-message {
+            padding: 10px 15px;
+            margin: 8px 0;
+            border-radius: 20px;
+            max-width: 75%;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .user-message {
+            background-color: #c8e6c9;
+            align-self: flex-start;
+            border-radius: 20px 20px 0 20px;
+        }
+
+        .bot-message {
+            background-color: #e3f2fd;
+            align-self: flex-end;
+            border-radius: 20px 20px 20px 0;
+        }
+
+        /* Item suggestion styling */
+        .item-suggestion {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: flex-start;
+            margin-top: 20px;
+        }
+
+        .item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            margin: 10px 0;
+            border-radius: 10px;
+        }
+
+        .item h3 {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .item p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        /* Quick View button styling */
+        .quick-view-btn {
+            background-color: #f8bbd0;
+            padding: 12px;
+            margin-top: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            color: white;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .quick-view-btn:hover {
+            background-color: #f48fb1;
+        }
+
+        #mood-options {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .mood-btn {
+            background-color: #f8bbd0;
+            padding: 12px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            color: white;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .mood-btn:hover {
+            background-color: #f48fb1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="chatbox" id="chatbox">
+        <div class="bot-message">Hello! I am Porunga. What is your mood today? (Select mood below)</div>
+    </div>
+
+    <div id="mood-options">
+        <button class="mood-btn" onclick="startChat('happy')">Wedding</button>
+        <button class="mood-btn" onclick="startChat('sad')">Sad</button>
+        <button class="mood-btn" onclick="startChat('chill')">Party</button>
+        <!-- <button class="mood-btn" onclick="startChat('excited')">Excited</button> -->
+        <button class="mood-btn" onclick="startChat('formal')">Formal/Office</button>
+        <button class="mood-btn" onclick="startChat('casual')">Casual</button>
+    </div>
+
+    <script>
+        function startChat(mood) {
+            var chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += "<div class='user-message'>You: " + mood + "</div>";
+
+            // Send the selected mood to the server (Flask)
+            fetch("/chatbot", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ mood: mood })
+            })
+            .then(response => response.json())
+            .then(data => {
+                chatbox.innerHTML += "<div class='bot-message'>Porunga: " + data.message + "</div>";
+
+                // Show clothing suggestions with images and other details
+                if (data.items) {
+                    var itemList = data.items;
+                    var itemHtml = "<div class='item-suggestion'>";
+                    itemList.forEach(item => {
+                        itemHtml += `
+                            <div class='item'>
+                                <img src="${item.image_url}" alt="${item.name}">
+                                <h3>${item.name}</h3>
+                                <p>Category: ${item.category}</p>
+                                <p>Price: Tk ${item.price}<small>(check quick view for discount)</small></p>
+                                <a href="/quick_view/${encodeURIComponent(item.name)}" class="quick-view-btn">Quick View</a>
+                            </div>
+                        `;
+                    });
+                    itemHtml += "</div>";
+                    chatbox.innerHTML += itemHtml;
+                }
+
+                // Scroll the chatbox to the bottom after every new message
+                chatbox.scrollTop = chatbox.scrollHeight;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                chatbox.innerHTML += "<div class='bot-message'>Sorry, something went wrong.</div>";
+            });
+        }
+    </script>
+
+</body>
+</html>
