@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            background-color: #f4f6f9;
+        }
+
+        .sidebar {
+            background-color: #2C3E50;
+            color: #fff;
+            width: 250px;
+            height: 100vh;
+            padding-top: 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .sidebar h2 {
+            color: #fff;
+            margin-bottom: 30px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .sidebar a {
+            color: #ecf0f1;
+            text-decoration: none;
+            padding: 12px;
+            font-size: 18px;
+            width: 100%;
+            text-align: center;
+            display: block;
+            border-bottom: 1px solid #34495E;
+        }
+
+        .sidebar a:hover {
+            background-color: #2980B9;
+            transition: 0.3s;
+        }
+
+        .dashboard-container {
+            margin-left: 250px;
+            width: calc(100% - 250px);
+            padding: 40px;
+            background-image: url('/static/images/dasboardback.webp');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+        }
+
+        .dashboard-container h1 {
+            font-size: 32px;
+            color: #007bff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-container p {
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .dashboard-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .dashboard-buttons a {
+            text-decoration: none;
+        }
+
+        .dashboard-buttons button {
+            width: 100%;
+            padding: 20px;
+            font-size: 18px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .dashboard-buttons button:hover {
+            background-color: #218838;
+            transform: translateY(-5px);
+        }
+
+        .logout {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .logout a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logout a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 200px;
+            }
+
+            .dashboard-container {
+                margin-left: 200px;
+                width: calc(100% - 200px);
+            }
+
+            .dashboard-buttons {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Panel</h2>
+        <a href="{{ url_for('view_product_list') }}">📋 View Product List</a>
+        <a href="{{ url_for('view_feedback') }}">💬 View Feedback</a>
+        <a href="{{ url_for('add_product') }}">➕ Add Product</a>
+        <a href="{{ url_for('remove_product') }}">❌ Remove Product</a>
+        <a href="{{ url_for('update_product') }}">✏️ Update Product</a>
+        <a href="{{ url_for('manage_users') }}">👥 Manage Users</a>
+    </div>
+
+    <div class="dashboard-container">
+        <h1>Welcome Admin {{ admin_id }}!</h1>
+        <p>You are now logged in as an admin. Manage the system below:</p>
+
+        <div class="dashboard-buttons">
+            <!-- Removed duplicate buttons from this section -->
+        </div>
+
+        <div class="logout">
+            <a href="{{ url_for('logout') }}">🚪 Logout</a>
+        </div>
+    </div>
+</body>
+</html>
